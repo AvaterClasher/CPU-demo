@@ -3,10 +3,10 @@
 
 using namespace std;
 
-using Byte = unsigned char;
-using Word = unsigned short;
+using Byte = unsigned char;  // 8 bits
+using Word = unsigned short; // 16 bits
 
-using u32 = unsigned int;
+using u32 = unsigned int; // 32 bits
 
 // using u32 = unsigned short;
 
@@ -164,10 +164,12 @@ int main()
     Mem mem;        // Initialise the memory
     CPU cpu;        // Initialise the CPU
     cpu.Reset(mem); // Reset the CPU
+
     // Starting a inline program
     mem[0xFFFC] = CPU::INS_LDA_IM;
     mem[0xFFFD] = 0x42;
     // Ending the inline program
+
     cpu.Execute(2, mem); // Execute the instructions in the memory
     return 0;
 }
